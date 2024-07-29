@@ -19,6 +19,7 @@ import Settings from "./Components/Cors/Dashboardpage/Settings"
 import { useSelector } from 'react-redux';
 import MyCourse from './Components/Cors/Dashboardpage/Mycourse/MyCourse';
 import Category_Detail from './Components/Cors/CategoriesDetail/Category_Detail';
+import CourseDetails from './Pages/CourseDetails';
 
 function App() {
   
@@ -52,7 +53,8 @@ const {user}=useSelector(state=>state.profile)
           <Route path='settings' element={<Settings/>}/>
           
         </Route>
-        <Route path='course/:name' element={<Category_Detail/>}/>
+        <Route path='categories/:categoryName' element={<Category_Detail/>}/>
+        <Route path='courses/:courseId' element={<CourseDetails/>}/>
       </Routes>
     </div>
   )

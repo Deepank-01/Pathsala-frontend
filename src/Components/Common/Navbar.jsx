@@ -101,7 +101,7 @@ const Navbar = () => {
                                         return <div 
                                         className='flex flex-col items-start justify-between p-3 font-inter text-sm text-richblack-800 transition-all
                                                    duration-200 hover:cursor-pointer hover:bg-richblack-200 hover:scale-100 rounded-md'>
-                                               <Link to={`/course/${item.name}`}>
+                                               <Link to={`/categories/${item.name}`}>
                                                {item.name}
                                                </Link>
                                         </div>
@@ -244,7 +244,7 @@ const Navbar = () => {
                                         return <div 
                                         className='flex flex-col items-start justify-between p-3 font-inter text-sm text-richblack-800 transition-all
                                                    duration-200 hover:cursor-pointer hover:bg-richblack-200 hover:scale-100 rounded-md'>
-                                               <Link to={`/course/${item.name}`}>
+                                               <Link to={`/categories/${item.name}`}>
                                                {item.name}
                                                </Link>
                                         </div>
