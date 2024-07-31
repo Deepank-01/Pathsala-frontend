@@ -179,7 +179,10 @@ export function logout(navigate) {
     // dispatch(resetCart())
     localStorage.removeItem("token")
     localStorage.removeItem("user")
-    console.log("Remove the user and the token")
+    localStorage.removeItem("cart")
+    localStorage.removeItem("total")
+    localStorage.removeItem("totalitems")
+    console.log("Remove the user ,cart and the token")
     toast.success("Logged Out")
     navigate("/")
   }

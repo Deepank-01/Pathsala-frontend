@@ -23,6 +23,7 @@ const {
   CREATE_RATING_API,
   LECTURE_COMPLETION_API,
   PUBLISH_COURSE,
+  GET_COURSE_DETAIL_STUDENT
 } = courseEndpoints
 
 export const getAllCourses = async () => {
@@ -413,3 +414,34 @@ export const Publish=async(data,token)=>{
    
   }
 }
+
+export const Student_enrolled_course=async(token)=>{
+  let result=[]
+  const toast_id=toast.loading("Loading........")
+  try{
+    const response = await apiConnector(
+      "GET",
+      GET_COURSE_DETAIL_STUDENT,
+      {token:token},
+      {
+        Authorization: `Bearer ${token}`,
+      }
+    )
+        if(!response?.data?.success){
+          toast.error("Server error to get the data of the student ")
+          throw new Error("Error in getting the data of the student")
+        }
+    console.log("This is the response of the studnet enrolld api call ",response)
+    result=response?.data?.data
+    toast.dismiss(toast_id)
+    return result
+  }
+  catch(error){
+        console.log("Error in getting the course for the student ",error)
+        toast.error("Error in getting the details of the student")
+  }
+  toast.dismiss(toast_id)
+  return result
+}
+
+
