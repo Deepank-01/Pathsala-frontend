@@ -1,7 +1,8 @@
 const BASE_URL="http://localhost:4000/api/v1"
 console.log(BASE_URL)
 export const Categories={
-    CATEGORIES_URL:BASE_URL+"/course/showAllCategories"
+    CATEGORIES_URL:BASE_URL+"/course/showAllCategories",
+    CATEGORIES_CREATE:BASE_URL+"/course/createCategory"
 }
 
 // CATALOG PAGE DATA
@@ -58,4 +59,7 @@ export const studentEndpoints = {
   COURSE_PAYMENT_API: BASE_URL + "/payment/capturePayment",
   COURSE_VERIFY_API: BASE_URL + "/payment/verifyPayment",
   SEND_PAYMENT_SUCCESS_EMAIL_API: BASE_URL + "/payment/sendPaymentSuccessEmail",
+}
+export const instructorEndpoints={
+  GET_STAT_INTRUCTOR:BASE_URL+"/profile/dashboardStats"
 }

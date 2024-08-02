@@ -10,6 +10,6 @@ auth:authSlice,
 profile:profileSlice,
 course:courseSlice,
 cart:cartSlice,
-viewCourse:viewCourseSlice
+viewCourse:viewCourseSlice,
 })
 export default RootReducers

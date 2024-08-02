@@ -23,6 +23,9 @@ import CourseDetails from './Pages/CourseDetails';
 import EnrolledCourse from './Pages/EnrolledCourse';
 import ViewCourse from './Pages/ViewCourse';
 import VideoPlayer from './Components/Cors/ViewCourse/VideoPlayer';
+import Cart from './Components/Cors/Dashboardpage/Cart/Cart';
+import Stat from './Components/Cors/Dashboardpage/Stats/Stat';
+import AddCategories from './Components/Cors/Dashboardpage/AddCategory/AddCategories';
 
 function App() {
   
@@ -53,13 +56,15 @@ const {user}=useSelector(state=>state.profile)
          
           <Route path='enrolled-courses' element={<EnrolledCourse/>}/>
           <Route path='purchase-history'/>
-          <Route path='instructor'/>
+          <Route path='AddCategory' element={<AddCategories/>}/>
+          <Route path='instructor' element={<Stat/>}/>
+          <Route path='cart' element={<Cart/>}/>
           <Route path='settings' element={<Settings/>}/>
         </Route>
 
          {/* nested routes for the video player */}
          <Route path='/view-course/:courseId' element={<ViewCourse/>}>
-         <Route path="section/:sectionId" element={<VideoPlayer/>}/>
+         <Route path="section/:sectionId/subsection/:subSectionId" element={<VideoPlayer/>}/>
 
          </Route>
 

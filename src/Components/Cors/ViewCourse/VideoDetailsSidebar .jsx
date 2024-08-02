@@ -6,12 +6,10 @@ import SectionName from './SectionName'
 // import { useLocation } from 'react-router'
 
 const VideoDetailsSidebar  = () => {
-    const { courseSectionData}=useSelector(state=>state.viewCourse)
+    const { courseSectionData}=useSelector(state=>state.viewCourse) // section data 
    
-    
-
   return (
-    <div className=' md:w-[20%] w-[30%]  min-h-[calc(100vh-3.5rem)]  mt-[3.0rem] border border-white flex flex-col'>
+    <div className=' flex flex-col'>
        <div>
         {
             courseSectionData && courseSectionData.map((item,index)=>{

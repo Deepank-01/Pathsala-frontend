@@ -181,7 +181,7 @@ export function logout(navigate) {
     localStorage.removeItem("user")
     localStorage.removeItem("cart")
     localStorage.removeItem("total")
-    localStorage.removeItem("totalitems")
+    localStorage.removeItem("totalItems")
     console.log("Remove the user ,cart and the token")
     toast.success("Logged Out")
     navigate("/")

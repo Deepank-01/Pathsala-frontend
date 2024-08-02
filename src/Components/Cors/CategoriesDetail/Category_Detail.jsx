@@ -16,7 +16,7 @@ const Category_Detail = () => {
     const allcategory=await apiConnector("GET",Categories.CATEGORIES_URL)
     // console.log(allcategory)
     const cat_Id=allcategory?.data?.category.filter((item)=>(item.name===categoryName))[0]._id
-    console.log("This the category id ",cat_Id)
+    // console.log("This the category id ",cat_Id)
     setcategoryId(cat_Id)
     // console.log("The category id is ",categoryId)
     
@@ -27,9 +27,9 @@ const Category_Detail = () => {
     
      const result=await  getcategoryDetail({categoryId:categoryId})
      console.log("This the page Data", result)
-     if(result){
+     
       setPageData(result)
-     }
+     
   }
 useEffect(()=>{
   handlerId()
@@ -64,9 +64,9 @@ useEffect(()=>{
        <div>
         <Category_slider courses={PageData?.data?.selectedCategory?.course}/>
        </div>
-
-       <div className=' text-richblack-50 mt-5  text-xl md:text-2xl'> Explore the Together Course </div>
-          <div className='grid grid-cols-1 lg:grid-cols-2'>
+         <div className=' border border-richblack-600 mt-4'></div>
+       <div className=' text-richblack-50 mt-5  text-xl md:text-2xl '> Explore the Together Course </div>
+          <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
           {
                             PageData?.data?.differentCategory?.course?.slice(0,4)
                             .map((course, index) => (
