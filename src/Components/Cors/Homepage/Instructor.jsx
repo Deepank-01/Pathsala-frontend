@@ -7,7 +7,7 @@ const Instructor = () => {
 
     <div className='relative md:w-[50%] '>
     {/* <div className='   w-[50%] md:h-[400px] bg-white'></div> */}
-    <img  src={img1} className='md:h-[400px] shadow-xl shadow-white '/>
+    <img  src={img1} className='md:h-[400px]  transition-all duration-200 hover:scale-105 hover:shadow-blue-100 hover:shadow-lg '/>
     </div>
     {/* content */}
     <div className='flex flex-col gap-5 md:w-[40%]  '>

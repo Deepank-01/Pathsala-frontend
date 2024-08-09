@@ -121,7 +121,7 @@ const CourseDetails = () => {
         <div className=' text-richblack-25 mt-12  md:text-3xl text-xl'>Course Content</div>
         <div className='  text-sm text-[#C5C7D4] md:text-lg mt-2'> {TotalSection} sections • {lecture} lectures </div>
         </diV>
-
+     
     </div>
   )
 }

@@ -9,6 +9,7 @@ import TimeLine from '../Components/Cors/Homepage/TimeLine'
 import AfterTimeLine from '../Components/Cors/Homepage/AfterTimeLine'
 import Instructor from '../Components/Cors/Homepage/Instructor'
 import Explore from '../Components/Cors/Homepage/Explore'
+import Footer from '../Components/Common/Footer'
 const Homepage = () => {
   return (
     <>
@@ -155,7 +156,10 @@ const Homepage = () => {
         <Instructor></Instructor>
     </div>
     {/* section3 */}
-    <div></div>
+    <div className=' mt-10'>
+    <Footer/>
+    </div>
+    
     </>
   )
 }

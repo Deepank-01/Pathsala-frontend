@@ -5,6 +5,7 @@ import { Categories } from '../../../service/apis'
 import { getcategoryDetail } from '../../../service/operations/category'
 import Category_slider from './Category_slider'
 import Card from './Card'
+import Footer from '../../Common/Footer'
 // import {CATEGORIES_URL} from "../../../service/apis"
 const Category_Detail = () => {
   const {categoryName}=useParams()
@@ -75,6 +76,7 @@ useEffect(()=>{
           }
           </div>
       </div>
+      <div className=' mt-10'><Footer/></div>
     </>
   )
 }

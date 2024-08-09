@@ -4,6 +4,7 @@ import { Outlet, useParams } from 'react-router'
 import { getFullDetailsOfCourse } from '../service/operations/courseDetailsAPI'
 import { setCourseSectionData, setEntireCourseData, setTotalNoOfLectures } from '../Slice/viewCourseSlice'
 import VideoDetailsSidebar from '../Components/Cors/ViewCourse/VideoDetailsSidebar '
+// import Footer from '../Components/Common/Footer'
 
 const ViewCourse = () => {
     const{token}=useSelector(state=>state.auth)
@@ -42,6 +43,7 @@ const ViewCourse = () => {
           
          
       </div>
+      
     </>
   )
 }

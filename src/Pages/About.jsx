@@ -1,8 +1,10 @@
 import React from 'react'
 import Formdata from '../Components/Cors/Aboutpage/Formdata'
+import Footer from '../Components/Common/Footer'
 
 const About = () => {
   return (
+   <>
     <div className='w-11/12 max-w-maxContent mx-auto border border-white flex flex-col mt-[10vh]'>
     {/* sectiton for the about us */}
     <section className='w-[100%] flex flex-col '>
@@ -30,7 +32,10 @@ const About = () => {
      <section className='mt-10'>
       <Formdata/>
      </section>
+    
     </div>
+    <div className=' mt-10'><Footer/></div>
+    </>
   )
 }
 
