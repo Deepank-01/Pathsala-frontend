@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, matchPath, useLocation, useNavigate } from 'react-router-dom'
 import navimg from "../../assets/Logo/Logo-Full-Light.png"
 import {NavbarLinks} from "../../data/navbar-links"
@@ -37,9 +37,28 @@ const Navbar = () => {
       fetchsubLinks()
     },[])
 
+    useEffect(()=>{
+      const handler=(e)=>{
+        if(!MenuDrop.current.contains(e.target)){
+          setopen(false)
+        }
+
+        if(!full_menuRef.current.contains(e.target)){
+          setprofile(false)
+        }
+
+        if(!categoryRef.current.contains(e.target)){
+          setcategorydrop(false)
+        }
+      }
+      document.addEventListener("mousedown",handler)
+    },[])
+
   console.log(user)
-
-
+// Drop down useref are used 
+  const MenuDrop=useRef()
+  const full_menuRef=useRef()
+  const categoryRef=useRef()
 
     const[open,setopen]=useState(false)
     const[profile,setprofile]=useState(false)
@@ -85,7 +104,7 @@ const Navbar = () => {
             item.title=="Categories" ?(<div className=''>
               {
                 subLinks.length >0  && (
-                    <div className=' relative '>
+                    <div className=' relative ' ref={categoryRef}>
                     <button className='flex items-center justify-between gap-3' onClick={()=>setcategorydrop(!categorydrop)}>
                         Categories
                         {
@@ -145,7 +164,7 @@ const Navbar = () => {
 
        {/* for the profile name  */}
        {
-        token && user && (<div className=' text-richblack-5 ml-4  relative'>
+        token && user && (<div className=' text-richblack-5 ml-4  relative' ref={full_menuRef}>
                 {/* logic for the profile  */}
                 <img src={`https://api.dicebear.com/5.x/initials/svg?seed=${user.firstName}${user.lastName}`}
                 alt='profile'
@@ -156,8 +175,9 @@ const Navbar = () => {
                   profile &&  <div className=' absolute bg-white  flex flex-col items-start  min-w-[100%] w-[200px] bg-white/90 text-richblack-800 py-2 rounded-lg top-9 right-0  '>
                  <div className=" text-lg p-4">Welcome {user.firstName}</div>
                    <div className=' border border-black w-[100%]'></div>
-                   <Link to={"/dashboard"} className=' p-4 w-[100%] rounded-md  text-xs transition-all duration-200 hover:scale-105 hover:bg-richblack-200 '>Dashboard</Link>
-                   <Link to={"/profile"} className=' p-4 w-[100%] rounded-md  text-xs transition-all duration-200 hover:scale-105 hover:bg-richblack-200 '>profile</Link>
+                   <Link to={"/dashboard/enrolled-courses"} className=' p-4 w-[100%] rounded-md  text-xs transition-all duration-200 hover:scale-105 hover:bg-richblack-200 '>Courses-Enrolled</Link>
+                   <Link to={"/dashboard/my-profile"} className=' p-4 w-[100%] rounded-md  text-xs transition-all duration-200 hover:scale-105 hover:bg-richblack-200 '>profile</Link>
+                   <Link to={""} className=' p-4 w-[100%] rounded-md  text-xs transition-all duration-200 hover:scale-105 hover:bg-richblack-200 '>Home</Link>
                    <button className=' p-4 w-[100%] rounded-md  text-xs transition-all duration-200 hover:scale-105 hover:bg-yellow-200 ' 
                    onClick={logoutfun}>Logout</button>
                  </div>
@@ -215,7 +235,7 @@ const Navbar = () => {
           
         </div>)
       }
-      <div className='relative w-[40%] flex flex-col items-end'>
+      <div className='relative w-[40%] flex flex-col items-end' ref={MenuDrop}>
          <button onClick={dropdown} className=' item'>
             <HiBars3 color='white' size={40}/>
             
