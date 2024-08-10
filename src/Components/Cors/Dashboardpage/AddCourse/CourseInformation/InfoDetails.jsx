@@ -9,6 +9,7 @@ const InfoDetails = () => {
   const dispatch=useDispatch()
   const {course,  editCourse}=useSelector(state=>state.course)
   const {token}=useSelector(state=>state.auth)
+  
   const [loading, setLoading] = useState(false);
   const inputRef= useRef(null)
   const [courseCategories, setCourseCategories] = useState([]);
@@ -66,6 +67,12 @@ const InfoDetails = () => {
     useEffect(()=>{
      getcategory()
     //  console.log(formdata)
+    },[])
+    
+    useEffect(()=>{
+      if(editCourse){
+
+      }
     },[])
 
   // for the thumbnail

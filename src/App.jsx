@@ -26,6 +26,7 @@ import VideoPlayer from './Components/Cors/ViewCourse/VideoPlayer';
 import Cart from './Components/Cors/Dashboardpage/Cart/Cart';
 import Stat from './Components/Cors/Dashboardpage/Stats/Stat';
 import AddCategories from './Components/Cors/Dashboardpage/AddCategory/AddCategories';
+import EditCourse from './Components/Cors/Dashboardpage/EditCourse/EditCourse';
 
 function App() {
   
@@ -51,9 +52,9 @@ const {user}=useSelector(state=>state.profile)
         <Route path='/dashboard' element={<Dashboard/>}>
           <Route path='my-profile' element={<Profile/>}/>
 
-          {user && user.accountType=="instructor" ?( <Route path='add-course' element={<Add_course/>}/>):(<Route path="add-course" element={<Error/>}/>) }
-          {user && user.accountType=="instructor" ?( <Route path='my-courses' element ={<MyCourse/>}/>):(<Route path="add-course" element={<Error/>}/>) }
-         
+          {user && user.accountType=="instructor" ?( <Route path='add-course' element={<Add_course/>}/>):(<Route path="error" element={<Error/>}/>) }
+          {user && user.accountType=="instructor" ?( <Route path='my-courses' element ={<MyCourse/>}/>):(<Route path="error" element={<Error/>}/>) }
+          {user && user.accountType=="instructor" ?( <Route path='my-courses/edit-course/:courseId' element ={<EditCourse/>}/>):(<Route path="error" element={<Error/>}/>) }
           <Route path='enrolled-courses' element={<EnrolledCourse/>}/>
           <Route path='purchase-history'/>
           <Route path='AddCategory' element={<AddCategories/>}/>

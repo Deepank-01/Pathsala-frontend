@@ -5,23 +5,23 @@ import { deleteCourse, fetchInstructorCourses, Publish } from '../../../../servi
 import { useSelector } from 'react-redux'
 import ConfirmationModal from "../../../Common/ConfirmationModal"
 import axios from 'axios'
+import { useNavigate } from 'react-router'
 
 const Displaycourse = ({item,setcourse}) => {
 const {token}=useSelector(state=>state.auth)
 const [confirmationModal, setConfirmationModal] = useState(null)
-  
+  const navigate=useNavigate()
+  // const courseId=item._id
   const handleupdate=async()=>{
     // used to publish the course 
   
-    const data={
-      courseId:item._id
-    }
-   await Publish(data,token)
-   const result = await fetchInstructorCourses(token)
-   if (result) {
-     setcourse(result)
-   }
-   setConfirmationModal(null)
+   navigate(`edit-course/${item._id}`)
+  //  await Publish(data,token)
+  //  const result = await fetchInstructorCourses(token)
+  //  if (result) {
+  //    setcourse(result)
+  //  }
+  //  setConfirmationModal(null)
   }
   const handledelete=async()=>{
        const data={
@@ -57,17 +57,19 @@ const [confirmationModal, setConfirmationModal] = useState(null)
           <div className='  p-2 flex gap-2  text-[#AFB2BF] items-center justify-center '>
             <button className=' transition-all duration-200 hover:text-caribbeangreen-100 hover:scale-110'
                           onClick={() => {
-                      setConfirmationModal({
-                        text1: "Publish this course ?",
-                        text2:
-                          "On publish only this would be vissible to students",
-                        btn1Text:"Publish",
-                        btn2Text: "Cancel",
-                        btn1Handler: () => handleupdate(item._id),
-                        btn2Handler:() => setConfirmationModal(null)
+                      // setConfirmationModal({
+                      //   text1: "Publish this course ?",
+                      //   text2:
+                      //     "On publish only this would be vissible to students",
+                      //   btn1Text:"Publish",
+                      //   btn2Text: "Cancel",
+                      //   btn1Handler: () => handleupdate(item._id),
+                      //   btn2Handler:() => setConfirmationModal(null)
                         
-                      })
-                    }}
+                      // })
+                      handleupdate()
+                    }
+                    }
             ><CiEdit size={30}/></button>
             <button className=' transition-all duration-200 hover:text-[#C41E3A]  hover:scale-110'
               onClick={() => {
