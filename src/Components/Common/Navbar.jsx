@@ -25,7 +25,7 @@ const Navbar = () => {
         try{
            const result= await apiConnector("GET",Categories.CATEGORIES_URL)
            
-          console.log("THis the data of the categoryies from backend",result.data.category.length)
+          // console.log("THis the data of the categoryies from backend",result.data.category.length)
           setsubLinks(result.data.category)
         }
         catch(err){
@@ -104,8 +104,8 @@ const Navbar = () => {
             item.title=="Categories" ?(<div className=''>
               {
                 subLinks.length >0  && (
-                    <div className=' relative ' ref={categoryRef}>
-                    <button className='flex items-center justify-between gap-3' onClick={()=>setcategorydrop(!categorydrop)}>
+                    <div className=' relative hover:cursor-pointer '  onClick={()=>setcategorydrop(!categorydrop)} ref={categoryRef}>
+                    <button className='flex items-center justify-between gap-3' >
                         Categories
                         {
                             categorydrop?(<MdArrowDropUp color='white' size={30}/>):(<MdArrowDropDown color='white' size={30}/>)
