@@ -1,5 +1,6 @@
-const BASE_URL="http://localhost:4000/api/v1"
-console.log(BASE_URL)
+// const BASE_URL="http://localhost:4000/api/v1"
+// console.log(BASE_URL)
+const BASE_URL=import.meta.env.VITE_BASE_URL+"/api/v1"
 export const Categories={
     CATEGORIES_URL:BASE_URL+"/course/showAllCategories",
     CATEGORIES_CREATE:BASE_URL+"/course/createCategory"
